@@ -58,7 +58,10 @@ para chegar lá.
    imperativa (um script bash que roda `docker run` passo a passo)? Que
    problema a abordagem declarativa resolve quando você roda o mesmo código
    várias vezes (idempotência)?
+   > uma ferramenta declarativa define o estado que aquela solução deve alcançar e a ferramenta define como alcançar esse estado, já a imperativa é definida como uma sequencia de passos deterministicos a ser seguida, a forma declarativa resolve o seguinte problema: como eu preciso chegar ao resultado daquele estado então preciso me antentar ao estado final não na sequencia deterministica de passos antes daquele resultado, já que o estado é definido se o estado estiver alcaçado não precisa repetir
 2. O que o `terraform plan` te mostrou antes do `apply`? Por que esse passo
    é importante em um time, mesmo fora do contexto Docker/local?
+   > mostra o que o terraform irá modificar ou aplicar de novo na infrastrutura, é importante pois o time pode verificar essas mundanças e confirmar se realmente é o de fato que vai mudar ou ser aplicado 
 3. O que aconteceria se você rodasse `terraform apply` duas vezes seguidas
    sem mudar nada no `main.tf`? Por quê?
+   > Nada. Pois como o terraform é declarativo ele precisa alcaçar aquele estado desejado, já que o estado desejado já foi alcaçado pelo o primeiro `apply` ele não precisa alcaçar novamente
