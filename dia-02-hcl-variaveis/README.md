@@ -53,8 +53,11 @@ Parta do `main.tf` do Dia 1 (copie/adapte para esta pasta) e refatore:
    > separar da mais modularidade ao projeto em sí, sem falar que ajuda o time saber exatamente o que procurar e aonde procura, evita que times maiores precisem criar um main.tf de muitas linhas e separe suas responsabilidades além de melhorar a documentação do projeto
 2. Qual a diferença entre dar um `default` para uma variável e deixá-la sem
    default? Quando você escolheria cada abordagem em um projeto real?
+   > Default para quando já tenho um valor predefinido antes, já sem default é para quando eu tenho que solicitar ao usuario definir a mesma, sendo nescessaria quando já sei que por exemplo a instancia de um ec2 sempre fica em uma determinada região e não preciso informar isso porque o valor já existe mesmo se não tiver nenhum input do usuario já sem default são variaveis que preciso solicitar antes poderia até ser o tag da versão da imagem
 3. Por que validar input o mais cedo possível (na variável, antes do
    `apply`) é melhor do que deixar a API do provider rejeitar depois?
+   > Porque é uma validação a mais, sem falar que tendo essa regra no código é uma forma de documentar a infrastrutura antes mesmo de ser criada, além de entregar o erro mais rápido antes mesmo de acontecer a validação na API
 4. Se `host_port` fosse uma senha de banco de dados em vez de uma porta,
    que problema teria em colocá-la direto no `terraform.tfvars` versionado
    no git? (você vai resolver isso formalmente no Dia 9)
+   > simples e meio obvio, estaria expondo as credênciais para varios possiveis ataques caso repositorio privado e daria acesso a quem não deveria ter essa informação 
