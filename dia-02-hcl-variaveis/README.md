@@ -40,16 +40,17 @@ Parta do `main.tf` do Dia 1 (copie/adapte para esta pasta) e refatore:
 
 ## Entregável
 
-- [ ] `variables.tf`, `outputs.tf`, `main.tf`, `terraform.tfvars` nesta pasta
-- [ ] `host_port` tem `validation` funcional (testada com valor inválido)
-- [ ] `terraform apply` funciona e `terraform output` mostra `container_url`
+- [X] `variables.tf`, `outputs.tf`, `main.tf`, `terraform.tfvars` nesta pasta
+- [X] `host_port` tem `validation` funcional (testada com valor inválido)
+- [X] `terraform apply` funciona e `terraform output` mostra `container_url`
       correto
-- [ ] `terraform destroy` limpo
+- [X] `terraform destroy` limpo
 
 ## Perguntas de reflexão (responda em `respostas.md`)
 
 1. Por que separar variáveis/outputs em arquivos próprios em vez de tudo em
    um único `main.tf`? Que problema isso evita em projetos maiores/times?
+   > separar da mais modularidade ao projeto em sí, sem falar que ajuda o time saber exatamente o que procurar e aonde procura, evita que times maiores precisem criar um main.tf de muitas linhas e separe suas responsabilidades além de melhorar a documentação do projeto
 2. Qual a diferença entre dar um `default` para uma variável e deixá-la sem
    default? Quando você escolheria cada abordagem em um projeto real?
 3. Por que validar input o mais cedo possível (na variável, antes do
